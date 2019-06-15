@@ -15,9 +15,10 @@ class Solution(object):
                 s += '('
                 backtrack(s, leftp+1, rightp)
                 s = s[:-1]
-            if rightp < leftp:
+            if rightp < leftp: # 关键部分，保证生成合法性
                 s += ')'
                 backtrack(s, leftp, rightp+1)
                 s = s[:-1]
         backtrack('', 0, 0)
+        print ans
         return ans
