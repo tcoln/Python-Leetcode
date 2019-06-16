@@ -5,7 +5,8 @@ class Solution(object):
         :type target: int
         :rtype: List[List[int]]
         :note:
-            跟上一题类似，每次循环下一层节点的时候，remove已经选用过的节点，例如节点1，同时用set去重重复的节点，例如节点2
+            跟上一题类似，子集解是升序解，同时注意list的浅复制；
+	    另外每次循环下一层节点的时候，remove已经选用过的节点，例如节点1，同时用set去重重复的节点，例如节点2
         """
         #candidates = [2,5,2,1,2]
         #target = 5
