@@ -1,4 +1,4 @@
-class Solution(object):
+ass Solution(object):
     def search(self, nums, target):
         """
         :type nums: List[int]
@@ -9,9 +9,36 @@ class Solution(object):
             注意：
                     —— 当数组没有旋转时：要么只有两个元素，要么i==j，则直接二分查找
                     —— 当在后半旋转部分查找时，记得索引+j
+                    
+            升级版的二分查找
         """
         #nums = [4,5]
         #target = 5
+        
+        # solution2
+        
+        n = len(nums)
+        l, r = 0, n-1
+        while(l <= r):
+            m = (l+r)/2
+            if nums[m] == target:
+                return m
+            elif nums[m] < nums[r]:
+                if target > nums[m] and target <= nums[r]:
+                    l = m + 1
+                else:
+                    r = m - 1
+            else:
+                if target >= nums[l] and target < nums[m]:
+                    r = m - 1
+                else:
+                    l = m + 1
+        return -1
+        
+        
+        
+        
+        # solution 1
         
         # special case
         l = len(nums)
