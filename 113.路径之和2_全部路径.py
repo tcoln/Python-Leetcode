@@ -33,3 +33,34 @@ class Solution(object):
         PreOrder(root, [])
         return ans
         
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def pathSum(self, root, sums):
+        """
+        :type root: TreeNode
+        :type sum: int
+        :rtype: List[List[int]]
+        :note:
+            根上一题类似，先序遍历的时候找到结果则存下来
+        """
+        if not root:
+            return []
+        ans = []
+        def preorder(r, s, path):
+            s += r.val
+            path.append(r.val)
+            if not r.left and not r.right:
+                if s == sums:
+                    ans.append(path)
+            else:
+                if r.left: preorder(r.left, s, list(path))
+                if r.right: preorder(r.right, s, list(path))
+        preorder(root, 0, [])
+        return ans

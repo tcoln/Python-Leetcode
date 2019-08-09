@@ -31,4 +31,33 @@ class Solution(object):
                 return PreOrder(r.left, s) or PreOrder(r.right, s) # 因为是or短路运算，左子树满足的时候右子树都没求解了，都不要剪枝了。
         
         return PreOrder(root, 0)
+
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def hasPathSum(self, root, sums):
+        """
+        :type root: TreeNode
+        :type sum: int
+        :rtype: bool
+        """
+        if not root:
+            return False
         
+        def preorder(r, s):
+            ans = False
+            if not r.left and not r.right:
+                if s + r.val == sums:
+                    return True
+            else:
+                if r.left: ans = ans or preorder(r.left, s+r.val)
+                if r.right: ans = ans or preorder(r.right, s+r.val)
+            return ans
+        
+        return preorder(root, 0)        
