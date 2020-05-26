@@ -1,3 +1,10 @@
+"""
+若numRows == 1，直接返回字符串s
+否则：
+·若是第一行：依次向down走到底，然后向up走到顶，取字符
+·若是中间行：依次从每行的第一个字符开始，先分别向down走到底，然后向up走到顶，取字符；反向走取字符；
+·若是最后一行：先up到顶后down到底，取字符。
+"""
 class Solution(object):
     def convert(self, s, numRows):
         """
