@@ -10,6 +10,7 @@ class Solution(object):
         :type l1: ListNode
         :type l2: ListNode
         :rtype: ListNode
+	:note: 先遍历链表，将数字转换成整数,然后两个整数求和，最后将整数和存入链表中，注意需要用pre指向前一个节点
         """
         num1 = l1.val
         num2 = l2.val
