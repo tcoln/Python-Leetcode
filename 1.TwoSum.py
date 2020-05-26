@@ -4,6 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :type target: int
         :rtype: List[int]
+	:note:第一轮用字典存储每个数的补数, 第二轮判断数字是否在补数字典中，并且当前索引i不等于补数的索引
         """
         comdict = dict()
         n = len(nums)
